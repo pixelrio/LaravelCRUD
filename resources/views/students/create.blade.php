@@ -21,15 +21,25 @@
             {{ csrf_field() }}
             <div class="mb-3">
                 <label for="fname" class="form-label">First Name</label>
-                <input type="text" class="form-control" id="fname" name="fname" aria-describedby="fname">
+                <input type="text" name="fname" class="form-control @error('fname') is-invalid @enderror" placeholder="First Name" value="{{ old('fname') }}">
+                @error('fname')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="lname" class="form-label">Last Name</label>
-                <input type="text" class="form-control" id="lname" name="lname" aria-describedby="lname">
+                <input type="text" name="lname" class="form-control @error('lname') is-invalid @enderror" placeholder="Last Name" value="{{ old('lname') }}">
+                @error('lname')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" name="email" aria-describedby="email">
+                <input type="text" name="lname" class="form-control @error('email') is-invalid @enderror" placeholder="Last Name" value="{{ old('email') }}">
                 @error('email')
                     <span class="text-danger" role="alert">
                         <strong>{{ $message }}</strong>
